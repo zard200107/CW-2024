@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.example.demo.model.actor.ActiveActorDestructible;
 import com.example.demo.model.actor.plane.FighterPlane;
 import com.example.demo.model.actor.plane.UserPlane;
+import com.example.demo.model.level.LevelView;
 
 import javafx.animation.*;
 import javafx.event.EventHandler;

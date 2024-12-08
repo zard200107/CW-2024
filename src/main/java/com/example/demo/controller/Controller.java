@@ -13,7 +13,7 @@ import com.example.demo.LevelParent;
 
 public class Controller implements Observer {
 
-	private static final String LEVEL_ONE_CLASS_NAME = "com.example.demo.LevelOne";
+	private static final String LEVEL_ONE_CLASS_NAME = "com.example.demo.model.level.LevelOne";
 	private final Stage stage;
 
 	public Controller(Stage stage) {
@@ -21,21 +21,21 @@ public class Controller implements Observer {
 	}
 
 	public void launchGame() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
-			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException  {
+			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-			stage.show();
-			goToLevel(LEVEL_ONE_CLASS_NAME);
+		stage.show();
+		goToLevel(LEVEL_ONE_CLASS_NAME);
 	}
 
 	private void goToLevel(String className) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-			Class<?> myClass = Class.forName(className);
-			Constructor<?> constructor = myClass.getConstructor(double.class, double.class);
-			LevelParent myLevel = (LevelParent) constructor.newInstance(stage.getHeight(), stage.getWidth());
-			myLevel.addObserver(this);
-			Scene scene = myLevel.initializeScene();
-			stage.setScene(scene);
-			myLevel.startGame();
+		Class<?> myClass = Class.forName(className);
+		Constructor<?> constructor = myClass.getConstructor(double.class, double.class);
+		LevelParent myLevel = (LevelParent) constructor.newInstance(stage.getHeight(), stage.getWidth());
+		myLevel.addObserver(this);
+		Scene scene = myLevel.initializeScene();
+		stage.setScene(scene);
+		myLevel.startGame();
 
 	}
 

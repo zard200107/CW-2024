@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.model.level;
 
+import com.example.demo.HeartDisplay;
 import com.example.demo.ui.screen.GameOverImage;
 import com.example.demo.ui.screen.WinImage;
 
