@@ -1,8 +1,8 @@
 package com.example.demo.model.level;
 
-import com.example.demo.HeartDisplay;
 import com.example.demo.ui.screen.GameOverImage;
 import com.example.demo.ui.screen.WinImage;
+import com.example.demo.ui.view.HeartDisplay;
 
 import javafx.scene.Group;
 
