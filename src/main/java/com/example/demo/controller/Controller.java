@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import com.example.demo.LevelParent;
+import com.example.demo.controller.ResourceManager;
 
 public class Controller implements Observer {
 
@@ -22,6 +23,8 @@ public class Controller implements Observer {
 
 	public void launchGame() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		// 预加载所有游戏图片资源
+		ResourceManager.preloadResources();
 
 		stage.show();
 		goToLevel(LEVEL_ONE_CLASS_NAME);
