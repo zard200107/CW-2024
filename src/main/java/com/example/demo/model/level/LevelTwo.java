@@ -33,6 +33,17 @@ public class LevelTwo extends LevelParent {
 	@Override
 	protected void spawnEnemyUnits() {
 		if (getCurrentNumberOfEnemies() == 0) {
+			boss.setShieldListener(new Boss.ShieldListener() {
+				@Override
+				public void onShieldActivated() {
+					levelView.showShield();
+				}
+
+				@Override
+				public void onShieldDeactivated() {
+					levelView.hideShield();
+				}
+			});
 			addEnemyUnit(boss);
 		}
 	}

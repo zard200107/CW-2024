@@ -27,6 +27,13 @@ public class Boss extends FighterPlane {
 	private int consecutiveMovesInSameDirection;
 	private int indexOfCurrentMove;
 	private int framesWithShieldActivated;
+	private ShieldListener shieldListener;
+
+	public interface ShieldListener {
+		void onShieldActivated();
+
+		void onShieldDeactivated();
+	}
 
 	public Boss() {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, HEALTH);
@@ -116,11 +123,22 @@ public class Boss extends FighterPlane {
 
 	private void activateShield() {
 		isShielded = true;
+		if (shieldListener != null) {
+			System.out.println("启用");
+			shieldListener.onShieldActivated();
+		}
 	}
 
 	private void deactivateShield() {
 		isShielded = false;
 		framesWithShieldActivated = 0;
+		if (shieldListener != null) {
+			shieldListener.onShieldDeactivated();
+		}
+	}
+
+	public void setShieldListener(ShieldListener listener) {
+		this.shieldListener = listener;
 	}
 
 }
