@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.model.actor;
+
+import com.example.demo.model.Destructible;
 
 public abstract class ActiveActorDestructible extends ActiveActor implements Destructible {
 
@@ -11,14 +13,14 @@ public abstract class ActiveActorDestructible extends ActiveActor implements Des
 
 	@Override
 	public abstract void updatePosition();
-	//move logic
+	// move logic
 
 	public abstract void updateActor();
-	//renew object status
+	// renew object status
 
 	@Override
 	public abstract void takeDamage();
-	//from api:Destructible window
+	// from api:Destructible window
 
 	@Override
 	public void destroy() {
@@ -32,5 +34,5 @@ public abstract class ActiveActorDestructible extends ActiveActor implements Des
 	public boolean isDestroyed() {
 		return isDestroyed;
 	}
-	
+
 }

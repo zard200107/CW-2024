@@ -1,6 +1,9 @@
-package com.example.demo;
+package com.example.demo.model.actor.plane;
 
 import java.util.*;
+
+import com.example.demo.model.actor.ActiveActorDestructible;
+import com.example.demo.model.actor.projectile.BossProjectile;
 
 public class Boss extends FighterPlane {
 
@@ -44,7 +47,7 @@ public class Boss extends FighterPlane {
 			setTranslateY(initialTranslateY);
 		}
 	}
-	
+
 	@Override
 	public void updateActor() {
 		updatePosition();
@@ -55,7 +58,7 @@ public class Boss extends FighterPlane {
 	public ActiveActorDestructible fireProjectile() {
 		return bossFiresInCurrentFrame() ? new BossProjectile(getProjectileInitialPosition()) : null;
 	}
-	
+
 	@Override
 	public void takeDamage() {
 		if (!isShielded) {
@@ -73,9 +76,12 @@ public class Boss extends FighterPlane {
 	}
 
 	private void updateShield() {
-		if (isShielded) framesWithShieldActivated++;
-		else if (shieldShouldBeActivated()) activateShield();	
-		if (shieldExhausted()) deactivateShield();
+		if (isShielded)
+			framesWithShieldActivated++;
+		else if (shieldShouldBeActivated())
+			activateShield();
+		if (shieldExhausted())
+			deactivateShield();
 	}
 
 	private int getNextMove() {

@@ -1,13 +1,14 @@
-package com.example.demo;
+package com.example.demo.model.actor;
 
 import javafx.scene.image.*;
 
 public abstract class ActiveActor extends ImageView {
-	
+
 	private static final String IMAGE_LOCATION = "/com/example/demo/images/";
-//abstract class
+
+	// abstract class
 	public ActiveActor(String imageName, int imageHeight, double initialXPos, double initialYPos) {
-		//this.setImage(new Image(IMAGE_LOCATION + imageName));
+		// this.setImage(new Image(IMAGE_LOCATION + imageName));
 		this.setImage(new Image(getClass().getResource(IMAGE_LOCATION + imageName).toExternalForm()));
 		this.setLayoutX(initialXPos);
 		this.setLayoutY(initialYPos);

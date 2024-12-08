@@ -1,4 +1,7 @@
-package com.example.demo;
+package com.example.demo.model.actor.plane;
+
+import com.example.demo.model.actor.ActiveActorDestructible;
+import com.example.demo.model.actor.projectile.UserProjectile;
 
 public class UserPlane extends FighterPlane {
 
@@ -18,7 +21,7 @@ public class UserPlane extends FighterPlane {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
 	}
-	
+
 	@Override
 	public void updatePosition() {
 		if (isMoving()) {
@@ -30,12 +33,12 @@ public class UserPlane extends FighterPlane {
 			}
 		}
 	}
-	
+
 	@Override
 	public void updateActor() {
 		updatePosition();
 	}
-	
+
 	@Override
 	public ActiveActorDestructible fireProjectile() {
 		return new UserProjectile(PROJECTILE_X_POSITION, getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET));

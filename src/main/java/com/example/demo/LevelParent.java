@@ -3,6 +3,10 @@ package com.example.demo;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.example.demo.model.actor.ActiveActorDestructible;
+import com.example.demo.model.actor.plane.FighterPlane;
+import com.example.demo.model.actor.plane.UserPlane;
+
 import javafx.animation.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -29,7 +33,7 @@ public abstract class LevelParent extends Observable {
 	private final List<ActiveActorDestructible> enemyUnits;
 	private final List<ActiveActorDestructible> userProjectiles;
 	private final List<ActiveActorDestructible> enemyProjectiles;
-	
+
 	private int currentNumberOfEnemies;
 	private LevelView levelView;
 
@@ -106,15 +110,19 @@ public abstract class LevelParent extends Observable {
 		background.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent e) {
 				KeyCode kc = e.getCode();
-				if (kc == KeyCode.UP) user.moveUp();
-				if (kc == KeyCode.DOWN) user.moveDown();
-				if (kc == KeyCode.SPACE) fireProjectile();
+				if (kc == KeyCode.UP)
+					user.moveUp();
+				if (kc == KeyCode.DOWN)
+					user.moveDown();
+				if (kc == KeyCode.SPACE)
+					fireProjectile();
 			}
 		});
 		background.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent e) {
 				KeyCode kc = e.getCode();
-				if (kc == KeyCode.UP || kc == KeyCode.DOWN) user.stop();
+				if (kc == KeyCode.UP || kc == KeyCode.DOWN)
+					user.stop();
 			}
 		});
 		root.getChildren().add(background);

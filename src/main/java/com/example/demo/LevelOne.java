@@ -1,7 +1,10 @@
 package com.example.demo;
 
+import com.example.demo.model.actor.ActiveActorDestructible;
+import com.example.demo.model.actor.plane.EnemyPlane;
+
 public class LevelOne extends LevelParent {
-	
+
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
 	private static final String NEXT_LEVEL = "com.example.demo.LevelTwo";
 	private static final int TOTAL_ENEMIES = 5;
@@ -17,8 +20,7 @@ public class LevelOne extends LevelParent {
 	protected void checkIfGameOver() {
 		if (userIsDestroyed()) {
 			loseGame();
-		}
-		else if (userHasReachedKillTarget())
+		} else if (userHasReachedKillTarget())
 			goToNextLevel(NEXT_LEVEL);
 	}
 

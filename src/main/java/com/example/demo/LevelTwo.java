@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.model.actor.plane.Boss;
+
 public class LevelTwo extends LevelParent {
 
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
@@ -21,8 +23,7 @@ public class LevelTwo extends LevelParent {
 	protected void checkIfGameOver() {
 		if (userIsDestroyed()) {
 			loseGame();
-		}
-		else if (boss.isDestroyed()) {
+		} else if (boss.isDestroyed()) {
 			winGame();
 		}
 	}
