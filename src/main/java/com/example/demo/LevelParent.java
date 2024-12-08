@@ -84,6 +84,23 @@ public abstract class LevelParent extends Observable {
 		notifyObservers(levelName);
 	}
 
+	public void cleanup() {
+		// 停止所有动画
+		if (timeline != null) {
+			timeline.stop();
+		}
+
+		// 清理所有观察者
+		deleteObservers();
+
+		// 清理资源
+		root.getChildren().clear();
+		friendlyUnits.clear();
+		enemyUnits.clear();
+		userProjectiles.clear();
+		enemyProjectiles.clear();
+	}
+
 	private void updateScene() {
 		spawnEnemyUnits();
 		updateActors();
